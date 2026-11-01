@@ -1,4 +1,4 @@
-# Pinyin Tonos
+# Pinyin Tones
 
 [English](#english) · [Español](#español)
 
@@ -25,13 +25,13 @@ A small Windows tray utility for typing pinyin with tone marks. Type a syllable 
 
 ### Download
 
-Get `PinyinTonos.exe` from the [latest release](../../releases/latest). It's a single file with no installer, and it doesn't need .NET installed.
+Get `PinyinTones.exe` from the [latest release](../../releases/latest). It's a single file with no installer, and it doesn't need .NET installed.
 
 The executable isn't code-signed, so Windows SmartScreen may show *"Windows protected your PC"* the first time. Click *More info* → *Run anyway*. Releases are built from this repository by [GitHub Actions](.github/workflows/build.yml).
 
 ### Usage
 
-Run `PinyinTonos.exe`. A red **ǎ** appears in the system tray. Double-click it (or use the menu) to pause; it turns grey. Right-click → *Exit* to quit. The menu follows the Windows display language (Spanish or English).
+Run `PinyinTones.exe`. A red **ǎ** appears in the system tray. Double-click it (or use the menu) to pause; it turns grey. Right-click → *Exit* to quit. The menu follows the Windows display language (Spanish or English).
 
 ### Privacy
 
@@ -51,7 +51,7 @@ dotnet test
 dotnet publish UI -c Release -r win-x64 --self-contained true
 ```
 
-The last command produces a single `PinyinTonos.exe` in `UI/bin/Release/net8.0-windows/win-x64/publish/`.
+The last command produces a single `PinyinTones.exe` in `UI/bin/Release/net8.0-windows/win-x64/publish/`.
 
 ### Known limitations
 
@@ -85,13 +85,13 @@ Una pequeña utilidad para Windows, en la bandeja del sistema, que sirve para es
 
 ### Descarga
 
-Descargá `PinyinTonos.exe` desde la [última release](../../releases/latest). Es un único archivo, sin instalador, y no necesita tener .NET instalado.
+Descargá `PinyinTones.exe` desde la [última release](../../releases/latest). Es un único archivo, sin instalador, y no necesita tener .NET instalado.
 
 El ejecutable no está firmado, así que la primera vez Windows SmartScreen puede mostrar *"Windows protegió su PC"*. Hacé clic en *Más información* → *Ejecutar de todas formas*. Las releases se compilan desde este repositorio con [GitHub Actions](.github/workflows/build.yml).
 
 ### Uso
 
-Ejecutá `PinyinTonos.exe`. Aparece una **ǎ** roja en la bandeja del sistema. Con doble clic (o desde el menú) se pausa y se pone gris. Clic derecho → *Salir* para cerrarla. El menú sigue el idioma de Windows (español o inglés).
+Ejecutá `PinyinTones.exe`. Aparece una **ǎ** roja en la bandeja del sistema. Con doble clic (o desde el menú) se pausa y se pone gris. Clic derecho → *Salir* para cerrarla. El menú sigue el idioma de Windows (español o inglés).
 
 ### Privacidad
 
@@ -111,7 +111,7 @@ dotnet test
 dotnet publish UI -c Release -r win-x64 --self-contained true
 ```
 
-El último comando genera un único `PinyinTonos.exe` en `UI/bin/Release/net8.0-windows/win-x64/publish/`.
+El último comando genera un único `PinyinTones.exe` en `UI/bin/Release/net8.0-windows/win-x64/publish/`.
 
 ### Limitaciones conocidas
 

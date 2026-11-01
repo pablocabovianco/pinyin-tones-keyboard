@@ -12,8 +12,8 @@ namespace UI.Helpers
 
         public static string Activo => Espanol ? "Activo" : "Active";
         public static string Salir => Espanol ? "Salir" : "Exit";
-        public static string EstadoActivo => Espanol ? "Pinyin Tonos: activo" : "Pinyin Tonos: active";
-        public static string EstadoPausa => Espanol ? "Pinyin Tonos: en pausa" : "Pinyin Tonos: paused";
+        public static string EstadoActivo => Espanol ? "Pinyin Tones: activo" : "Pinyin Tones: active";
+        public static string EstadoPausa => Espanol ? "Pinyin Tones: en pausa" : "Pinyin Tones: paused";
         public static string ErrorInesperado => Espanol ? "Error inesperado." : "Unexpected error.";
 
         public static string Bienvenida => Espanol

@@ -9,7 +9,7 @@ namespace UI
         static void Main()
         {
             // Una sola instancia: con dos abiertas cada sílaba se convertiría dos veces.
-            using Mutex mutex = new(true, @"Local\PinyinTonos", out bool primeraInstancia);
+            using Mutex mutex = new(true, @"Local\PinyinTones", out bool primeraInstancia);
             if (!primeraInstancia)
                 return;
 
@@ -25,7 +25,7 @@ namespace UI
 
         private static void MostrarError(Exception? ex)
         {
-            MessageBox.Show(ex?.Message ?? Textos.ErrorInesperado, "Pinyin Tonos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(ex?.Message ?? Textos.ErrorInesperado, "Pinyin Tones", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -5,10 +5,10 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
-    <AssemblyName>PinyinTonos</AssemblyName>
+    <AssemblyName>PinyinTones</AssemblyName>
     <RootNamespace>UI</RootNamespace>
-    <ApplicationIcon>Resources\PinyinTonos.ico</ApplicationIcon>
-    <Product>Pinyin Tonos</Product>
+    <ApplicationIcon>Resources\PinyinTones.ico</ApplicationIcon>
+    <Product>Pinyin Tones</Product>
     <Version>1.0.0</Version>
   </PropertyGroup>
 

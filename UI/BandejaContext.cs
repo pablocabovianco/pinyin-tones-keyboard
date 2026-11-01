@@ -33,11 +33,11 @@ namespace UI
             }
             catch (InvalidOperationException ex)
             {
-                MessageBox.Show(ex.Message, "Pinyin Tonos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Pinyin Tones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             ActualizarEstado();
 
-            _icono.ShowBalloonTip(3000, "Pinyin Tonos", Textos.Bienvenida, ToolTipIcon.None);
+            _icono.ShowBalloonTip(3000, "Pinyin Tones", Textos.Bienvenida, ToolTipIcon.None);
         }
 
         private void Alternar()
@@ -51,7 +51,7 @@ namespace UI
             }
             catch (InvalidOperationException ex)
             {
-                MessageBox.Show(ex.Message, "Pinyin Tonos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Pinyin Tones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             ActualizarEstado();
