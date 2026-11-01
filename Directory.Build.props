@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <!-- Async sin await y resultados de Task ignorados: errores, no advertencias -->
+    <WarningsAsErrors>CS4014;CS1998</WarningsAsErrors>
+  </PropertyGroup>
+</Project>
