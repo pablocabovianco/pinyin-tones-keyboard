@@ -1,0 +1,38 @@
+# Compila y corre los tests en cada push y pull request. Al subir un tag v* (v1.0.0) publica
+# el .exe autocontenido como release, así el binario que se descarga sale de este código.
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Tests
+        run: dotnet test -c Release
+
+      - name: Publicar el .exe
+        run: dotnet publish UI -c Release -r win-x64 --self-contained true -o publish
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PinyinTonos
+          path: publish/PinyinTonos.exe
+
+      - name: Crear la release
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: gh release create "${{ github.ref_name }}" publish/PinyinTonos.exe --title "${{ github.ref_name }}" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
