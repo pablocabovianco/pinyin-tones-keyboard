@@ -25,7 +25,7 @@ namespace UI
 
         private static void MostrarError(Exception? ex)
         {
-            MessageBox.Show(ex?.Message ?? "Error inesperado.", "Pinyin Tonos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(ex?.Message ?? Textos.ErrorInesperado, "Pinyin Tonos", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

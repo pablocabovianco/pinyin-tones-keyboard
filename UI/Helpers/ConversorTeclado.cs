@@ -36,7 +36,7 @@ namespace UI.Helpers
 
             _hookTeclado = SetWindowsHookEx(WH_KEYBOARD_LL, _procTeclado, modulo, 0);
             if (_hookTeclado == IntPtr.Zero)
-                throw new InvalidOperationException($"No se pudo activar la conversión (error {Marshal.GetLastWin32Error()}).");
+                throw new InvalidOperationException(Textos.NoSePudoActivar(Marshal.GetLastWin32Error()));
 
             // El mouse solo se usa para saber que el cursor pudo cambiar de lugar.
             _hookMouse = SetWindowsHookEx(WH_MOUSE_LL, _procMouse, modulo, 0);
@@ -120,7 +120,7 @@ namespace UI.Helpers
                     return false;
                 }
 
-                int tono = ObtenerTono(tecla, shift);
+                int tono = ObtenerTono(tecla, shift, ventana);
                 if (tono > 0 && _silaba.Length > 0)
                 {
                     ResultadoConversion? resultado = _pinyinService.Convertir(_silaba.ToString(), tono);
@@ -144,12 +144,21 @@ namespace UI.Helpers
             }
         }
 
-        private static int ObtenerTono(Keys tecla, bool shift)
+        private static int ObtenerTono(Keys tecla, bool shift, IntPtr ventana)
         {
-            if (tecla is >= Keys.D1 and <= Keys.D5 && !shift)
-                return tecla - Keys.D0;
             if (tecla is >= Keys.NumPad1 and <= Keys.NumPad5)
                 return tecla - Keys.NumPad0;
+
+            // La fila de números depende de la distribución: en AZERTY sin Shift da & é " ' (.
+            // VkKeyScanEx dice qué tecla y qué Shift escriben cada dígito en la distribución de la
+            // ventana activa, sin tocar el estado de las teclas muertas (como haría ToUnicode).
+            IntPtr distribucion = GetKeyboardLayout(GetWindowThreadProcessId(ventana, IntPtr.Zero));
+            for (char digito = '1'; digito <= '5'; digito++)
+            {
+                short combinacion = VkKeyScanEx(digito, distribucion);
+                if (combinacion != -1 && (combinacion & 0xFF) == (int)tecla && (combinacion >> 8) == (shift ? 1 : 0))
+                    return digito - '0';
+            }
             return 0;
         }
 

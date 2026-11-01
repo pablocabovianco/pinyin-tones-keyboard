@@ -18,11 +18,11 @@ namespace UI
         {
             _conversor = conversor;
 
-            _menuActivo = new ToolStripMenuItem("Activo", null, (_, _) => Alternar());
+            _menuActivo = new ToolStripMenuItem(Textos.Activo, null, (_, _) => Alternar());
             ContextMenuStrip menu = new();
             menu.Items.Add(_menuActivo);
             menu.Items.Add(new ToolStripSeparator());
-            menu.Items.Add("Salir", null, (_, _) => ExitThread());
+            menu.Items.Add(Textos.Salir, null, (_, _) => ExitThread());
 
             _icono = new NotifyIcon { ContextMenuStrip = menu, Visible = true };
             _icono.DoubleClick += (_, _) => Alternar();
@@ -37,8 +37,7 @@ namespace UI
             }
             ActualizarEstado();
 
-            _icono.ShowBalloonTip(3000, "Pinyin Tonos",
-                "Escribí la sílaba y el número de tono: hao3 → hǎo, lv4 → lǜ.", ToolTipIcon.None);
+            _icono.ShowBalloonTip(3000, "Pinyin Tonos", Textos.Bienvenida, ToolTipIcon.None);
         }
 
         private void Alternar()
@@ -62,7 +61,7 @@ namespace UI
         {
             _menuActivo.Checked = _conversor.Activo;
             _icono.Icon = _conversor.Activo ? _iconoActivo : _iconoPausa;
-            _icono.Text = _conversor.Activo ? "Pinyin Tonos: activo" : "Pinyin Tonos: en pausa";
+            _icono.Text = _conversor.Activo ? Textos.EstadoActivo : Textos.EstadoPausa;
         }
 
         protected override void ExitThreadCore()
